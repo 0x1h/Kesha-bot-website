@@ -1,0 +1,128 @@
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css");
+.commands-section {
+  width: 100%;
+  height: 100vh;
+}
+
+.commands-section .blob-banner {
+  width: 100%;
+  height: 20%;
+}
+
+.commands-section main {
+  width: 100%;
+  padding: 0 50px;
+}
+
+.commands-section main h1 {
+  font-weight: 900;
+  font-size: 4rem;
+  color: #fff;
+}
+
+.commands-section main .commands-check {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.commands-section main .commands-check .commands-preview {
+  width: calc(100% - 20vw);
+  height: 400px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  overflow-y: auto;
+  gap: 10px;
+  -webkit-box-shadow: inset 0 0 10px #000;
+          box-shadow: inset 0 0 10px #000;
+  padding: 10px 20px;
+}
+
+.commands-section main .commands-check .commands-preview .command-list {
+  width: 100%;
+  padding: 0 10px;
+  height: 50px;
+  background: #272727;
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  color: #fff;
+  position: relative;
+}
+
+.commands-section main .commands-check .commands-preview .command-list code {
+  color: #fff;
+  background: #161616;
+  padding: 5px;
+  border-radius: 5px;
+  font-family: "Cascadia Code", sans-serif;
+}
+
+.commands-section main .commands-check .commands-preview .command-list:hover {
+  background: #202020;
+}
+
+.commands-section main .commands-check .commands-preview .command-list .preiew-badge {
+  position: absolute;
+  right: 0;
+  -webkit-transform: translateX(-10px);
+          transform: translateX(-10px);
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #c55469, #96446e);
+  padding: 0 20px;
+  border-radius: 5px;
+}
+
+.commands-section main .commands-check .commands-menu {
+  min-width: 400px;
+  height: 400px;
+  background: #272727;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 10px;
+}
+
+.commands-section main .commands-check .commands-menu button.command-btn {
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+  background: transparent;
+  color: #fff;
+}
+
+.commands-section main .commands-check .commands-menu button.command-btn:hover {
+  background: #161616;
+}
+
+.commands-section main .commands-check .commands-menu button.command-btn.selected {
+  background: #96446e;
+}
+/*# sourceMappingURL=commands.css.map */

@@ -23,12 +23,12 @@ const PlayMusic = () => {
 
   const list = {
     visible: { opacity: appearMessage ? 1 : 0, x: appearMessage ? 0 : -200 },
-    hidden: { opacity: 0, x: appearMessage ? 0 : -200 },
+    hidden: { opacity: 0, x: appearMessage ? 0 : -200 }
   };
 
   const textList = {
     visible: { opacity: appearMessage ? 1 : 0, x: appearMessage ? 0 : 100 },
-    hidden: { opacity: 0, x: appearMessage ? 0 : 100 },
+    hidden: { opacity: 0, x: appearMessage ? 0 : 100 }
   };
 
   return (

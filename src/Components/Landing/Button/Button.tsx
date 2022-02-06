@@ -26,6 +26,7 @@ const Button = () => {
         ref={ref}
         initial={false}
         animate={isHover ? "hover" : "rest"}
+        className="button-invite"
         whileTap="press"
 		style={{
 			zIndex: 99

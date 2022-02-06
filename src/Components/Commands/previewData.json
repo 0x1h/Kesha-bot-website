@@ -1,0 +1,11 @@
+{
+	"data": [
+		{"command_name": "$albums", "preview": false, "text": "[ Your text goes here ]"},
+		{"command_name": "$bidentweet", "preview": true, "text": "[ Your text goes here ]", "API_URL": "https://api.popcat.xyz/biden?text="},
+		{"command_name": "$ship", "preview": false, "text": "[ @mention user ]"},
+		{"command_name": "$drip", "preview": false, "text": "[ @mention user ]"},
+		{"command_name": "$clown", "preview": false, "text": "[ @mention user ]"},
+		{"command_name": "$sadcat", "preview": true, "text": "[ Your text goes here ]", "API_URL": "https://api.popcat.xyz/sadcat?text="},
+		{"command_name": "$github", "preview": true, "text": "[ username ]",  "API_URL": "https://api.popcat.xyz/github/"}
+	]
+}

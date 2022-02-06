@@ -13,26 +13,26 @@ const Invite = () => {
   };
 
   const scrollHandler = () => {
-	const scrollY = window.pageYOffset
-	
-	if(scrollY >= 2753){
-		setAppearMessage(true)
-	}
-  }
+    const scrollY = window.pageYOffset;
+
+    if (scrollY >= 2753) {
+      setAppearMessage(true);
+    }
+  };
 
   useEffect(() => {
-	window.addEventListener("scroll", scrollHandler)
-	return () => window.removeEventListener("scroll", scrollHandler)
-  })
+    window.addEventListener("scroll", scrollHandler);
+    return () => window.removeEventListener("scroll", scrollHandler);
+  });
 
   return (
     <section className="invite-section">
       <motion.h1
-	  	       animate="visible"
-				 initial="hidden"
-				 transition={{ ease: "easeOut", duration: 1, }}
-				 variants={textList}
-	  >
+        animate="visible"
+        initial="hidden"
+        transition={{ ease: "easeOut", duration: 1 }}
+        variants={textList}
+      >
         Are you ready to invite her on your{" "}
         <span className="discord"> Discord</span> server?
       </motion.h1>
