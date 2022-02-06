@@ -5,6 +5,7 @@ import Avatar2 from "./Assets/user2.png"
 import BotPhoto from "./Assets/bot-avatar.png";
 import SadCat from "./Assets/sadcat.png"
 import {motion} from "framer-motion"
+import Typewriter from "typewriter-effect";
 
 
 const FunCommands = () => {
@@ -17,6 +18,10 @@ const FunCommands = () => {
       setAppearMessage(true)
     }    
   }
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler)
+    return () => window.removeEventListener("scroll", scrollHandler)
+  })
   
   const list = {
     visible: { opacity: appearMessage ? 1 : 0, x: appearMessage ? 0 : -200 },
@@ -28,10 +33,6 @@ const FunCommands = () => {
     hidden: { opacity: 0, x: appearMessage ? 0 : -100 },
   }
 
-  useEffect(() => {
-    window.addEventListener("scroll", scrollHandler)
-    return () => window.removeEventListener("scroll", scrollHandler)
-  })
 
   return (
   <section className='fun-commands'>
@@ -47,7 +48,9 @@ const FunCommands = () => {
     With Friends
     </motion.div>
     <div className="message-container">
-      <motion.div 
+      {
+        appearMessage &&
+        <motion.div 
         className="message"
         animate="visible"
         initial="hidden"
@@ -67,15 +70,26 @@ const FunCommands = () => {
             <div className="time">Today at 9:19 PM</div>
           </div>
           <div className="down-content">
-            $msg Hello, How are you?
+            <Typewriter 
+              onInit={(write) => {
+                write
+                .changeDelay(20)
+                .typeString("$msg Hello, How are you?")
+                .callFunction((state) => {
+                  state.elements.cursor.style.display = 'none';
+                })
+                write.start()
+              }}
+            />
           </div>
         </div>
       </motion.div>
+      }
       <motion.div 
         className="message"
         animate="visible"
         initial="hidden"
-        transition={{ ease: "easeOut", duration: .1, delay: 1.5 }}
+        transition={{ ease: "easeOut", duration: .1, delay: 2.4 }}
         variants={list}
         >
         
@@ -96,33 +110,47 @@ const FunCommands = () => {
           </div>
         </div>
       </motion.div>
-      <motion.div 
-        className="message" 
-        transition={{ ease: "easeOut", duration: .1, delay: 2.5 }}
-        animate="visible"
-        initial="hidden"
-        variants={list}
-      >
-        <div className="avatar">
-          <div className="avatar-frame">
-            <img src={Avatar2} alt="discord-avatar" />
-          </div>
-        </div>
-        <div className="message-content">
-          <div className="upper-contenet">
-            <div className="username cyan">
-            Daniel
-            </div>
-            <div className="time">Today at 9:20 PM</div>
-          </div>
-          <div className="down-content">
-          $sadcat me on my birthday
-          </div>
-        </div>
-      </motion.div>
+     {
+       appearMessage &&
+       <motion.div 
+       className="message" 
+       transition={{ ease: "easeOut", duration: .1, delay: 3 }}
+       animate="visible"
+       initial="hidden"
+       variants={list}
+     >
+       <div className="avatar">
+         <div className="avatar-frame">
+           <img src={Avatar2} alt="discord-avatar" />
+         </div>
+       </div>
+       <div className="message-content">
+         <div className="upper-contenet">
+           <div className="username cyan">
+           Daniel
+           </div>
+           <div className="time">Today at 9:20 PM</div>
+         </div>
+         <div className="down-content">
+         <Typewriter 
+             onInit={(write) => {
+               write
+               .callFunction((state) => {
+                 state.elements.cursor.style.display = 'none';
+               })
+               .changeDelay(20)
+               .pauseFor(2500)
+               .typeString("$sadcat me on my birthday")
+               .start()
+             }}
+           />
+         </div>
+       </div>
+     </motion.div>
+     }
       <motion.div 
         className="message"
-        transition={{ ease: "easeOut", duration: .1, delay: 3.5 }}
+        transition={{ ease: "easeOut", duration: .1, delay: 4.5 }}
         animate="visible"
         initial="hidden"
         variants={list}

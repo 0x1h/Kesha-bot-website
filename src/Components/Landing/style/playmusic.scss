@@ -1,0 +1,239 @@
+@mixin Center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.playmusic {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  @media screen and(max-width: 1070px) {
+    flex-direction: column-reverse;
+  }
+  .music-request {
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+    @include Center();
+    @media screen and(max-width: 1070px) {
+      text-align: center;
+    }
+    h1 {
+      font-size: 5.5rem;
+      background: -webkit-linear-gradient(45deg, #fa9845, #c55469, #96446e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      @media screen and(max-width: 681px) {
+        font-size: 4rem;
+      }
+	  @media screen and(max-width: 560px) {
+		font-size: 2.2rem;
+	  }
+    }
+    p {
+      color: #fff;
+      width: 100%;
+      #spotify {
+        color: #1db954;
+      }
+      #youtube {
+        color: #ff0000;
+      }
+      #soundcloud {
+        color: #ff8800;
+      }
+    }
+  }
+  .message-container {
+    width: 100%;
+    @include Center();
+    flex-direction: column;
+    gap: 10px 0;
+    padding: 10px 50px;
+    @media screen and(max-width: 560px) {
+      padding: 0 5px;
+    }
+    .message {
+      display: flex;
+      width: 100%;
+      min-height: 80px;
+      background: #2e2e2e;
+      padding: 10px 5px;
+      border-radius: 10px;
+      .avatar {
+        position: relative;
+        width: 140px;
+        height: 100%;
+        @include Center();
+        .avatar-frame {
+          position: absolute;
+          top: 0;
+          transform: translateY(10px);
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          overflow: hidden;
+          @media screen and(max-width: 560px) {
+            width: 45px;
+            height: 45px;
+          }
+          img {
+            width: auto;
+            height: 100%;
+          }
+        }
+      }
+      .message-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .upper-contenet {
+          width: 100%;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          transform: translateY(10px);
+          @media screen and(max-width: 560px) {
+            transform: none;
+          }
+          .username {
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 600;
+            &.purple {
+              color: #c600e7;
+            }
+            &.cyan {
+              color: #00e794;
+            }
+            @media screen and(max-width: 560px) {
+              font-size: 1rem;
+            }
+          }
+          .time {
+            margin-left: 10px;
+            color: #636363;
+            font-weight: 300;
+            @media screen and(max-width: 560px) {
+              font-size: 0.7rem;
+            }
+          }
+        }
+        .down-content {
+          display: flex;
+          align-items: center;
+          color: #fff;
+          width: 100%;
+          height: 100%;
+          font-weight: 600;
+          font-size: 1.1rem;
+          @media screen and(max-width: 560px) {
+            font-size: 0.8rem;
+          }
+          .music-embed {
+            width: calc(100% - 50px);
+            min-height: 170px;
+            background: #1b1b1b;
+            border-radius: 10px;
+            border-left: 5px solid #2400ff;
+            padding: 19px 0;
+            display: flex;
+            @media screen and(max-width: 600px) {
+              flex-direction: column;
+            }
+            .music-info {
+              width: 100%;
+              height: 100%;
+              padding: 0 10px;
+              p.now-playing {
+                color: #fff;
+                font-size: 0.9rem;
+              }
+              a.music-name {
+                color: #39b8ff;
+                font-size: 0.95rem;
+                margin-top: 10px;
+                text-decoration: none;
+                cursor: pointer;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+              .stats {
+                width: 100%;
+                display: flex;
+                height: calc(100% - 45px);
+                padding-right: 40px;
+                .requestor {
+                  background: #61e3ff59;
+                  cursor: pointer;
+                  &:hover {
+                    background: #61e3ff80;
+                  }
+                  width: auto;
+                  padding: 0 10px;
+                  border-radius: 5px;
+                  font-size: 0.95rem;
+                  height: 30px;
+                  position: relative;
+                  margin-top: 40px;
+                  &:before {
+                    content: "Requested By:";
+                    position: absolute;
+                    transform: translate(-10px, -20px);
+                    font-size: 0.8rem;
+                    width: 100%;
+                  }
+                }
+                .duration {
+                  margin-top: 40px;
+                  background: #111;
+                  @include Center();
+                  height: 30px;
+                  margin-left: 20px;
+                  width: 70px;
+                  border-radius: 5px;
+                  align-items: center;
+                  position: relative;
+                  &:before {
+                    content: "Duration:";
+                    position: absolute;
+                    transform: translate(5px, -25px);
+                    font-size: 0.8rem;
+                    width: 100%;
+                  }
+                }
+              }
+            }
+            .music-thumbnail {
+              width: 200px;
+              .thumbnail-wrapper {
+                @media screen and(max-width: 681px) {
+                  width: 160px;
+                  border-radius: 10px;
+                  margin-right: 0;
+                }
+				@media screen and(max-width: 681px) {
+					margin-top: 10px;
+					margin-left: 10px;
+				}
+                width: 100%;
+                height: 100px;
+                overflow: hidden;
+                margin-right: 20px;
+                img {
+                  width: auto;
+                  height: 100%;
+                  border-radius: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

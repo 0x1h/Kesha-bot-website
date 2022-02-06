@@ -9,8 +9,6 @@ const Youtube = () => {
 	const scrollHandler = () => {
 	  const scrollY = window.pageYOffset
 	  
-	  console.log(scrollY);
-	  
 	  if(scrollY >= 1247){
 		  setAppearMessage(true)
 	  }

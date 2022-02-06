@@ -55,7 +55,7 @@
 
 @media screen and (max-width: 560px) {
   .watch-youtube .yt-preview {
-    padding: 0 2px;
+    padding: 0;
   }
 }
 

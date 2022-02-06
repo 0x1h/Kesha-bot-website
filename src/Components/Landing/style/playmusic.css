@@ -1,0 +1,396 @@
+.button-wrapper {
+  width: 100%;
+  height: 100vh;
+  bottom: 0;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid red;
+  overflow: hidden;
+}
+
+.playmusic {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (max-width: 1070px) {
+  .playmusic {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+
+.playmusic .music-request {
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (max-width: 1070px) {
+  .playmusic .music-request {
+    text-align: center;
+  }
+}
+
+.playmusic .music-request h1 {
+  font-size: 5.5rem;
+  background: -webkit-linear-gradient(45deg, #fa9845, #c55469, #96446e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media screen and (max-width: 681px) {
+  .playmusic .music-request h1 {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .playmusic .music-request h1 {
+    font-size: 2.2rem;
+  }
+}
+
+.playmusic .music-request p {
+  color: #fff;
+  width: 100%;
+}
+
+.playmusic .music-request p #spotify {
+  color: #1db954;
+}
+
+.playmusic .music-request p #youtube {
+  color: #ff0000;
+}
+
+.playmusic .music-request p #soundcloud {
+  color: #ff8800;
+}
+
+.playmusic .message-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px 0;
+  padding: 10px 50px;
+}
+
+@media screen and (max-width: 560px) {
+  .playmusic .message-container {
+    padding: 0 5px;
+  }
+}
+
+.playmusic .message-container .message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  min-height: 80px;
+  background: #2e2e2e;
+  padding: 10px 5px;
+  border-radius: 10px;
+}
+
+.playmusic .message-container .message .avatar {
+  position: relative;
+  width: 140px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.playmusic .message-container .message .avatar .avatar-frame {
+  position: absolute;
+  top: 0;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 560px) {
+  .playmusic .message-container .message .avatar .avatar-frame {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+.playmusic .message-container .message .avatar .avatar-frame img {
+  width: auto;
+  height: 100%;
+}
+
+.playmusic .message-container .message .message-content {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.playmusic .message-container .message .message-content .upper-contenet {
+  width: 100%;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+@media screen and (max-width: 560px) {
+  .playmusic .message-container .message .message-content .upper-contenet {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+.playmusic .message-container .message .message-content .upper-contenet .username {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.playmusic .message-container .message .message-content .upper-contenet .username.purple {
+  color: #c600e7;
+}
+
+.playmusic .message-container .message .message-content .upper-contenet .username.cyan {
+  color: #00e794;
+}
+
+@media screen and (max-width: 560px) {
+  .playmusic .message-container .message .message-content .upper-contenet .username {
+    font-size: 1rem;
+  }
+}
+
+.playmusic .message-container .message .message-content .upper-contenet .time {
+  margin-left: 10px;
+  color: #636363;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 560px) {
+  .playmusic .message-container .message .message-content .upper-contenet .time {
+    font-size: 0.7rem;
+  }
+}
+
+.playmusic .message-container .message .message-content .down-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 560px) {
+  .playmusic .message-container .message .message-content .down-content {
+    font-size: 0.8rem;
+  }
+}
+
+.playmusic .message-container .message .message-content .down-content .music-embed {
+  width: calc(100% - 50px);
+  min-height: 170px;
+  background: #1b1b1b;
+  border-radius: 10px;
+  border-left: 5px solid #2400ff;
+  padding: 19px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (max-width: 600px) {
+  .playmusic .message-container .message .message-content .down-content .music-embed {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.playmusic .message-container .message .message-content .down-content .music-embed .music-info {
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+}
+
+.playmusic .message-container .message .message-content .down-content .music-embed .music-info p.now-playing {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.playmusic .message-container .message .message-content .down-content .music-embed .music-info a.music-name {
+  color: #39b8ff;
+  font-size: 0.95rem;
+  margin-top: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.playmusic .message-container .message .message-content .down-content .music-embed .music-info a.music-name:hover {
+  text-decoration: underline;
+}
+
+.playmusic .message-container .message .message-content .down-content .music-embed .music-info .stats {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: calc(100% - 45px);
+  padding-right: 40px;
+}
+
+.playmusic .message-container .message .message-content .down-content .music-embed .music-info .stats .requestor {
+  background: #61e3ff59;
+  cursor: pointer;
+  width: auto;
+  padding: 0 10px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  height: 30px;
+  position: relative;
+  margin-top: 40px;
+}
+
+.playmusic .message-container .message .message-content .down-content .music-embed .music-info .stats .requestor:hover {
+  background: #61e3ff80;
+}
+
+.playmusic .message-container .message .message-content .down-content .music-embed .music-info .stats .requestor:before {
+  content: "Requested By:";
+  position: absolute;
+  -webkit-transform: translate(-10px, -20px);
+          transform: translate(-10px, -20px);
+  font-size: 0.8rem;
+  width: 100%;
+}
+
+.playmusic .message-container .message .message-content .down-content .music-embed .music-info .stats .duration {
+  margin-top: 40px;
+  background: #111;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30px;
+  margin-left: 20px;
+  width: 70px;
+  border-radius: 5px;
+  align-items: center;
+  position: relative;
+}
+
+.playmusic .message-container .message .message-content .down-content .music-embed .music-info .stats .duration:before {
+  content: "Duration:";
+  position: absolute;
+  -webkit-transform: translate(5px, -25px);
+          transform: translate(5px, -25px);
+  font-size: 0.8rem;
+  width: 100%;
+}
+
+.playmusic .message-container .message .message-content .down-content .music-embed .music-thumbnail {
+  width: 200px;
+}
+
+.playmusic .message-container .message .message-content .down-content .music-embed .music-thumbnail .thumbnail-wrapper {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 681px) {
+  .playmusic .message-container .message .message-content .down-content .music-embed .music-thumbnail .thumbnail-wrapper {
+    width: 160px;
+    border-radius: 10px;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 681px) {
+  .playmusic .message-container .message .message-content .down-content .music-embed .music-thumbnail .thumbnail-wrapper {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+}
+
+.playmusic .message-container .message .message-content .down-content .music-embed .music-thumbnail .thumbnail-wrapper img {
+  width: auto;
+  height: 100%;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=playmusic.css.map */
