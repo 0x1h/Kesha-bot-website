@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #001220;
+}
+
+@mixin Center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kesha-cover {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  @include Center();
+  .half-cut-blue {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #001220;
+  }
+  .bot-avatar {
+    @include Center();
+    flex-direction: column;
+    z-index: 9;
+    h1 {
+      color: #fff;
+      font-size: 2rem;
+    }
+    .avatar-frame {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 15px solid #001220;
+      overflow: hidden;
+      position: relative;
+	  @media screen and(max-width: 315px) {
+		  width: 250px;
+		  height: 250px;
+	  }
+      .blank {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 10;
+      }
+      img {
+        width: auto;
+        height: 100%;
+      }
+    }
+  }
+  #visual {
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-size: 100% 100%;
+  }
+  .mouse-scroll{
+	z-index: 9;
+	position: absolute;
+	bottom: 0;
+	transform: translateY(-10px);
+	animation-name: mouseAnimate;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+  }
+}
+
+@keyframes mouseAnimate {
+	0% {
+		transform: translateY(-30px);
+	}
+	50%{
+		transform: translateY(-10px);
+	}
+	100%{
+		transform: translateY(-30px);
+	}
+}
+
+
+::selection {
+  background: #fbae3c;
+  color: #000;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color:#fbae3c;
+}
+::-webkit-scrollbar-track {
+  background-color: #151515;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+}

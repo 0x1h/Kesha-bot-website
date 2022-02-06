@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+@mixin Center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fun-commands {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  @media screen and(max-width: 1126px) {
+    flex-direction: column;
+  }
+
+  .text {
+    @include Center();
+    background: -webkit-linear-gradient(45deg, #fa9845, #c55469, #96446e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 5.5rem;
+    font-weight: 900;
+    width: 100%;
+    @media screen and(max-width: 1300px) {
+      font-size: 4rem;
+    }
+    @media screen and(max-width: 1126px) {
+      text-align: center;
+    }
+    @media screen and(max-width: 560px) {
+      font-size: 2.2rem;
+    }
+  }
+  .message-container {
+    width: 100%;
+    @include Center();
+    flex-direction: column;
+    gap: 10px 0;
+    padding: 10px 50px;
+	@media screen and(max-width: 560px) {
+		padding: 0 5px;
+	  }
+    .message {
+      display: flex;
+      width: 100%;
+      min-height: 80px;
+      background: #2e2e2e;
+      padding: 10px 5px;
+      border-radius: 10px;
+      .avatar {
+        position: relative;
+        width: 140px;
+        height: 100%;
+        @include Center();
+        .avatar-frame {
+          position: absolute;
+          top: 0;
+          transform: translateY(10px);
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          overflow: hidden;
+          @media screen and(max-width: 560px) {
+            width: 45px;
+            height: 45px;
+          }
+          img {
+            width: auto;
+            height: 100%;
+          }
+        }
+      }
+      .message-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .upper-contenet {
+          width: 100%;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          transform: translateY(10px);
+		  @media screen and(max-width: 560px) {
+			transform: none;
+		  }
+          .username {
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 600;
+            &.purple {
+              color: #c600e7;
+            }
+            &.cyan {
+              color: #00e794;
+            }
+			@media screen and(max-width: 560px) {
+				font-size: 1rem;
+			  }
+          }
+          .time {
+            margin-left: 10px;
+            color: #636363;
+            font-weight: 300;
+			@media screen and(max-width: 560px) {
+				font-size: .7rem;
+			  }
+          }
+        }
+        .down-content {
+          display: flex;
+          align-items: center;
+          color: #fff;
+          width: 100%;
+          height: 100%;
+          font-weight: 600;
+          font-size: 1.1rem;
+		  @media screen and(max-width: 560px) {
+			font-size: .8rem;
+		  }
+          .meme-wrapper {
+            width: auto;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 6px;
+			max-width: 100%;
+            img {
+              width: auto;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@mixin Center() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.watch-youtube{
+	width: 100%;
+	min-height: 100vh;
+	padding-top: 60px;
+	.text{
+		font-size: 5.5rem;
+		width: 100%;
+		background: -webkit-linear-gradient(45deg, #fa9845, #c55469, #96446e);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		font-weight: 900;
+		text-align: center;
+		@media screen and (max-width: 1247px){
+			font-size: 4rem;
+		}
+		@media screen and(max-width: 560px) {
+			font-size: 2.2rem;
+		  }
+		#yt{
+			background: -webkit-linear-gradient(45deg, #FF0000, #8E1616);
+			-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+	}
+	.yt-preview{
+		@include Center();
+		padding: 0 100px;
+		@media screen and (max-width: 1247px){
+			padding: 0 20px;
+		}
+		@media screen and(max-width: 560px) {
+			padding: 0 2px;
+		  }
+		img{
+			width: 100%;
+		}
+	}
+}

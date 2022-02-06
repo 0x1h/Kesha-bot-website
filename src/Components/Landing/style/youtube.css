@@ -1,0 +1,65 @@
+.watch-youtube {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 60px;
+}
+
+.watch-youtube .text {
+  font-size: 5.5rem;
+  width: 100%;
+  background: -webkit-linear-gradient(45deg, #fa9845, #c55469, #96446e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  text-align: center;
+}
+
+@media screen and (max-width: 1247px) {
+  .watch-youtube .text {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .watch-youtube .text {
+    font-size: 2.2rem;
+  }
+}
+
+.watch-youtube .text #yt {
+  background: -webkit-linear-gradient(45deg, #FF0000, #8E1616);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.watch-youtube .yt-preview {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 100px;
+}
+
+@media screen and (max-width: 1247px) {
+  .watch-youtube .yt-preview {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .watch-youtube .yt-preview {
+    padding: 0 2px;
+  }
+}
+
+.watch-youtube .yt-preview img {
+  width: 100%;
+}
+/*# sourceMappingURL=youtube.css.map */
