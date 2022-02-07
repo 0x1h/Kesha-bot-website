@@ -6,10 +6,10 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Avatar1 from "../Landing/Assets/user1.png";
 import Kesha from "../Landing/Assets/bot-avatar.png";
 import commands from "./previewData.json";
+import "./style/loading.css"
 import axios from "axios";
 
 interface PreviewProps {
-  command_name: previewType;
   closeSandbox: () => void;
 }
 
@@ -30,14 +30,11 @@ const formatAMPM = (date: Date) => {
   return strTime;
 };
 
-const CommandsPreview: FC<PreviewProps> = ({ command_name, closeSandbox }) => {
+const AIPreview: FC<PreviewProps> = ({closeSandbox}) => {
   const [input, setInput] = useState<string>("");
-  const optionsRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const optionsRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<messagesProps[]>([]);
-  const command: string | undefined = commands.data.find(
-    (e) => e.command_name === command_name
-  )?.API_URL;
 
   const formHandler = (e: FormEvent) => {
     e.preventDefault();
@@ -45,30 +42,32 @@ const CommandsPreview: FC<PreviewProps> = ({ command_name, closeSandbox }) => {
     if (!input.trim()) return;
 
     setIsLoading(true)
-
-    axios.get(command + input.split(" ").join("+"))
-    .then(() => {
-      setMessages([
-        ...messages,
-        {
-          name: "You",
-          message: `${input}`,
-          time: formatAMPM(new Date()),
-        },
-        {
-          name: "Kesha-bot",
-          message: command + input.split(" ").join("+"),
-          time: formatAMPM(new Date()),
-        },
-      ]);
+    
+    axios.get(`https://api.popcatdev.repl.co/chatbot?msg=${input}&owner=callmenikk&botname=Kesha`)
+    .then((resp) => {
+      if(resp){
+        setMessages([
+          ...messages,
+		  {
+			name: "You",
+			message: `${input}`,
+			time: formatAMPM(new Date()),
+		  },
+          {
+            name: "Kesha-bot",
+            message: resp.data.response,
+            time: formatAMPM(new Date())
+          },
+        ]);
+      }
       setIsLoading(false)
     }).catch(err => {
       console.log(err);
     })
-
-
+    
     setInput("");
   };
+
 
   const handleClickOutside = (e: any) => {
     if (optionsRef.current && !optionsRef.current.contains(e.target)) {
@@ -86,7 +85,7 @@ const CommandsPreview: FC<PreviewProps> = ({ command_name, closeSandbox }) => {
   return (
     <div className="preview-sandbox">
       <div className="sandbox-container" ref={optionsRef}>
-        <div className="preview-messages">
+        <div className="preview-messages" >
           {messages.map((e, i) => {
             return (
               <div className="message" key={i}>
@@ -105,11 +104,9 @@ const CommandsPreview: FC<PreviewProps> = ({ command_name, closeSandbox }) => {
                   </div>
                   <div className="down-content">
                     {e.name === "You" ? (
-                      `${command_name} ${e.message}`
+                      `$msg ${e.message}`
                     ) : (
-                      <div className="meme-wrapper">
-                        <img src={e.message} alt="kesha-reply" />
-                      </div>
+                      e.message
                     )}
                   </div>
                 </div>
@@ -126,11 +123,11 @@ const CommandsPreview: FC<PreviewProps> = ({ command_name, closeSandbox }) => {
             </div>
             <div className="message-content">
               <div className="upper-contenet">
-                <div className="username">Kesha-bot</div>
+                <div className="username purple">Kesha-bot</div>
                 <div className="time">Today at {formatAMPM(new Date())}</div>
               </div>
               <div className="down-content">
-                <span className="loader"></span>
+               <span className="loader"></span>
               </div>
             </div>
           </div>
@@ -147,7 +144,7 @@ const CommandsPreview: FC<PreviewProps> = ({ command_name, closeSandbox }) => {
                 <div className="time">Today at {formatAMPM(new Date())}</div>
               </div>
               <div className="down-content">
-                {command_name} {input}
+                {"$msg"} {input}
               </div>
             </div>
           </div>
@@ -161,7 +158,7 @@ const CommandsPreview: FC<PreviewProps> = ({ command_name, closeSandbox }) => {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Message #Kesha-bot"
+              placeholder="Message #kesha-ai"
             />
           </form>
         </div>
@@ -170,4 +167,4 @@ const CommandsPreview: FC<PreviewProps> = ({ command_name, closeSandbox }) => {
   );
 };
 
-export default CommandsPreview;
+export default AIPreview;

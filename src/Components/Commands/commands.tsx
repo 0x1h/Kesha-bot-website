@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./style/commands.css";
 import FunPhotos from "./FunPhotos"
 import BlobCover from "../Landing/BlobCover";
+import KeshaAi from "./KeshaAi";
+import MusicCommands from "./MusicCommands";
 
 type selectType = "Fun Photos" | "AI" | "Music";
 
@@ -36,7 +38,7 @@ const Commands = () => {
               }
               onClick={() => setSelectedCommands("AI")}
             >
-              AI
+              Kesha AI
             </button>
             <button
               className={
@@ -51,6 +53,8 @@ const Commands = () => {
           </div>
           <div className="commands-preview">
             {selectedCommands === "Fun Photos" && <FunPhotos />}
+            {selectedCommands === "AI" && <KeshaAi />}
+            {selectedCommands === "Music" && <MusicCommands />}
           </div>
         </div>
       </main>

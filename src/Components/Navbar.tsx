@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Kesha from "./Landing/Assets/bot-avatar.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./navbar.css";
 
 const Navbar = () => {
   const [appearNavbar, setappearNavbar] = useState<boolean>(false);
+  const [openNavbar, setOpenNavbar] = useState<boolean>(false)
+  const navbarRef = useRef<HTMLDivElement>(null)
   const navigate = useNavigate();
   const {pathname} = useLocation();
 
@@ -14,13 +16,27 @@ const Navbar = () => {
 	  }
   }, [])
 
+
+  const handleClickOutside = (e: any) => {
+    if (navbarRef.current && !navbarRef.current.contains(e.target)) {
+      setOpenNavbar(false)
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true);
+
+    return () =>
+      document.removeEventListener("click", handleClickOutside, true);
+  });
+
   const scrollHandler = () => {
     const scrollY = window.pageYOffset;
 
     if (scrollY >= 500 && pathname === "/") {
       setappearNavbar(true);
     } else if(pathname !== "/"){
-		setappearNavbar(true);
+		  setappearNavbar(true);
 	}else {
       setappearNavbar(false);
     }
@@ -31,9 +47,14 @@ const Navbar = () => {
   });
 
   return (
-    <nav className={appearNavbar ? "nav" : "nav hidden"}>
+    <nav className={appearNavbar ? (openNavbar ? "nav opened": "nav") : "nav hidden"} ref={navbarRef}>
       <div className="avatar-frame" onClick={() => navigate("/")}>
         <img src={Kesha} alt="" />
+      </div>
+      <div className="hamburger-menu" onClick={() => setOpenNavbar(!openNavbar)}>
+        <span className="line"></span>
+        <span className="line"></span>
+        <span className="line"></span>
       </div>
       <div className="second">
         <p onClick={() => navigate("/about")}>About</p>

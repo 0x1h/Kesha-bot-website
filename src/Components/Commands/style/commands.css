@@ -14,10 +14,24 @@
   padding: 0 50px;
 }
 
+@media (max-width: 573px) {
+  .commands-section main {
+    padding: 0 5px;
+  }
+}
+
 .commands-section main h1 {
   font-weight: 900;
   font-size: 4rem;
   color: #fff;
+}
+
+@media (max-width: 500px) {
+  .commands-section main h1 {
+    font-size: 2rem;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .commands-section main .commands-check {
@@ -25,9 +39,15 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+}
+
+@media screen and (max-width: 1028px) {
+  .commands-section main .commands-check {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .commands-section main .commands-check .commands-preview {
@@ -43,10 +63,17 @@
       -ms-flex-align: start;
           align-items: start;
   overflow-y: auto;
-  gap: 10px;
+  gap: 10px 0;
+  padding: 10px 20px;
   -webkit-box-shadow: inset 0 0 10px #000;
           box-shadow: inset 0 0 10px #000;
-  padding: 10px 20px;
+}
+
+@media (max-width: 1028px) {
+  .commands-section main .commands-check .commands-preview {
+    width: 100%;
+    padding: 10px 0;
+  }
 }
 
 .commands-section main .commands-check .commands-preview .command-list {
@@ -64,6 +91,12 @@
   cursor: pointer;
   color: #fff;
   position: relative;
+}
+
+@media (max-width: 500px) {
+  .commands-section main .commands-check .commands-preview .command-list {
+    height: 85px;
+  }
 }
 
 .commands-section main .commands-check .commands-preview .command-list code {
@@ -89,6 +122,15 @@
   border-radius: 5px;
 }
 
+@media (max-width: 500px) {
+  .commands-section main .commands-check .commands-preview .command-list .preiew-badge {
+    bottom: 0;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    width: 120px;
+  }
+}
+
 .commands-section main .commands-check .commands-menu {
   min-width: 400px;
   height: 400px;
@@ -106,6 +148,18 @@
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 20px 10px;
+}
+
+@media (max-width: 1028px) {
+  .commands-section main .commands-check .commands-menu {
+    height: auto;
+  }
+}
+
+@media (max-width: 1028px) {
+  .commands-section main .commands-check .commands-menu {
+    min-width: 100%;
+  }
 }
 
 .commands-section main .commands-check .commands-menu button.command-btn {

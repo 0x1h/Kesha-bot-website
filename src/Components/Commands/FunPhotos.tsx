@@ -10,6 +10,7 @@ export type previewType =
 | "$drip"
 | "$github"
 | "$clown"
+| "$msg"
 
 const FunPhotos = () => {
 	const [openPreview, setOpenPreview] = useState(false)

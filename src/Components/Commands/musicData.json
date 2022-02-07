@@ -1,0 +1,22 @@
+{
+	"data": [
+		{"command_name": "$bassboost", "preview": false, "text": "[ none | low | medium | high ]"},
+		{"command_name": "$bump", "preview": false, "text": "- Moves a track to the front of the queue."},
+		{"command_name": "$clear", "preview": false, "text": "- clear songs queue"},
+		{"command_name": "$disconnect", "preview": false, "text": "- Stop the music and leave the voice channel"},
+		{"command_name": "$grab", "preview": false, "text": "- Saves the current song to your Direct Messages"},
+		{"command_name": "$loop", "preview": false, "text": "- Loop the current song"},
+		{"command_name": "$loopqueue", "preview": false, "text": "- Loop the whole queue"},
+		{"command_name": "$lyrics", "preview": false, "text": "[ name of your song ]"},
+		{"command_name": "$move", "preview": false, "text": " - Moves a track to a specified position."},
+		{"command_name": "$nowplaying", "preview": false, "text": " - See what song is currently playing"},
+		{"command_name": "$pause", "preview": false, "text": "- Pauses the music"},
+		{"command_name": "$play", "preview": false, "text": "- Your favorite song's name"},
+		{"command_name": "$remove", "preview": false, "text": "- [number] remove specific music from queue"},
+		{"command_name": "$resume", "preview": false, "text": " - Resumes the music"},
+		{"command_name": "$seek", "preview": false, "text": "<time s/m/h> Seek to a position in the song"},
+		{"command_name": "$shuffle", "preview": false, "text": "- Shuffles the queue"},
+		{"command_name": "$volume <volume>", "preview": false, "text": "Check or change the current volume"},
+		{"command_name": "$youtube", "preview": false, "text": "- Starts a YouTube Together session"}
+	]
+}

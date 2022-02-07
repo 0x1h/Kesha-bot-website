@@ -15,7 +15,7 @@ const Invite = () => {
   const scrollHandler = () => {
     const scrollY = window.pageYOffset;
 
-    if (scrollY >= 2753) {
+    if (scrollY >= 2553) {
       setAppearMessage(true);
     }
   };

@@ -10,15 +10,25 @@
   main {
     width: 100%;
     padding: 0 50px;
+    @media (max-width: 573px) {
+      padding: 0 5px;
+    }
     h1 {
       font-weight: 900;
       font-size: 4rem;
       color: #fff;
+      @media (max-width: 500px) {
+        font-size: 2rem;
+        width: 100%;
+        text-align: center;
+      }
     }
     .commands-check {
       width: 100%;
       display: flex;
-      justify-content: space-between;
+      @media screen and(max-width: 1028px) {
+        flex-direction: column;
+      }
       .commands-preview {
         width: calc(100% - 20vw);
         height: 400px;
@@ -26,9 +36,14 @@
         flex-direction: column;
         align-items: start;
         overflow-y: auto;
-        gap: 10px;
-        box-shadow: inset 0 0 10px #000;
+        gap: 10px 0;
         padding: 10px 20px;
+        box-shadow: inset 0 0 10px #000;
+        @media (max-width: 1028px) {
+          width: 100%;
+        padding: 10px 0;
+
+        }
         .command-list {
           width: 100%;
           padding: 0 10px;
@@ -40,6 +55,9 @@
           cursor: pointer;
           color: #fff;
           position: relative;
+          @media (max-width: 500px) {
+            height: 85px;
+          }
           code {
             color: #fff;
             background: #161616;
@@ -53,11 +71,16 @@
           .preiew-badge {
             position: absolute;
             right: 0;
-			transform: translateX(-10px);
-			text-transform: uppercase;
-			background: linear-gradient(45deg, #c55469, #96446e);
-			padding: 0 20px;
-			border-radius: 5px;
+            transform: translateX(-10px);
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #c55469, #96446e);
+            padding: 0 20px;
+            border-radius: 5px;
+            @media (max-width: 500px) {
+              bottom: 0;
+              transform: translateX(0px);
+              width: 120px;
+            }
           }
         }
       }
@@ -71,6 +94,12 @@
         gap: 10px;
         flex-direction: column;
         padding: 20px 10px;
+        @media (max-width: 1028px) {
+          height: auto;
+        }
+        @media (max-width: 1028px) {
+          min-width: 100%;
+        }
         button.command-btn {
           width: 100%;
           border-radius: 5px;

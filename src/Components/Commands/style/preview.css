@@ -1,7 +1,7 @@
 .preview-sandbox {
   width: 100%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.4);
@@ -44,7 +44,7 @@
   -webkit-box-shadow: inset 0 0 5px;
           box-shadow: inset 0 0 5px;
   padding: 20px 10px;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .preview-sandbox .sandbox-container .preview-messages .message {
