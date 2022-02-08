@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./style/commands.css";
 import FunPhotos from "./FunPhotos"
 import BlobCover from "../Landing/BlobCover";
@@ -10,6 +10,10 @@ type selectType = "Fun Photos" | "AI" | "Music";
 const Commands = () => {
   const [selectedCommands, setSelectedCommands] =
     useState<selectType>("Fun Photos");
+
+    useEffect(() => {
+      document.title = "Kesha bot - Commands 🌈🛸👽"
+    }, [])
 
   return (
     <section className="commands-section">

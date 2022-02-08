@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./style/style.css";
 import BotAvatar from "./BotAvatar";
 import FunCommands from "./FunCommands"
@@ -6,6 +7,10 @@ import PlayMusic from "./PlayMusic";
 import Invite from "./Invite"
 
 export const Landing = () => {
+  useEffect(() => {
+    document.title = "Kesha bot 🌈🛸👽"
+  }, [])
+
   return (
     <>
       <BotAvatar/>

@@ -31,6 +31,12 @@ const [openPreview, setOpenPreview] = useState<boolean>(false)
 		</code>
 		{" - Edit the bot settings"}
 	</div>
+	<div className="command-list">
+		<code>
+			$albums
+		</code>
+		{" - Information wbout kesha's albums"}
+	</div>
   </>;
 };
 

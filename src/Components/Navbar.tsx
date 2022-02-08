@@ -58,7 +58,7 @@ const Navbar = () => {
       </div>
       <div className="second">
         <p onClick={() => navigate("/about")}>About</p>
-        <p onClick={() => navigate("/Commands")}>Commands</p>
+        <p onClick={() => navigate("/commands")}>Commands</p>
         <a
           href="https://discord.com/api/oauth2/authorize?client_id=938136480453365770&permissions=8&scope=bot"
           target={"_blank"}
