@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import BlobCover from "../Landing/BlobCover";
-import Kesha from "../Landing/Assets/bot-avatar.png";
 import "./style/style.css";
 
 const About = () => {
-  const [clipBoard, setClipBoard] = useState("callmenikk#0001")
+  const [clipBoard, setClipBoard] = useState("callmenikk#4874")
+  const [avatar, setAvatar] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
   const [c, setC] = useState(false)
 
   useEffect(() => {
@@ -12,11 +13,22 @@ const About = () => {
   }, [])
 
   useEffect(() => {
+    setIsLoading(true)
+
+    fetch("https://kesha-bot-users.herokuapp.com/user/938136480453365770")
+    .then((resp) => resp.json())
+    .then(data => {
+      setAvatar(data.avatarURL)
+      setIsLoading(false)
+    })
+  }, [])
+
+  useEffect(() => {
     if(clipBoard === "Copied to clipboard"){
       setC(true)
       setTimeout(() => {
         setC(false)
-        setClipBoard('callmenikk#0001')
+        setClipBoard(clipBoard)
       }, 2000)
     }
   }, [clipBoard])
@@ -30,7 +42,11 @@ const About = () => {
         <h1>About</h1>
         <div className="about-wrapper">
           <div className="kesha-avatar">
-            <img src={Kesha} alt="" />
+            {
+            isLoading ?
+              <span className="loader" />
+            : <img src={avatar} alt="" />
+            }
           </div>
           <div className="about-text">
             This is Kesha bot, which is made for fun, it has cool cool commands,{" "}
@@ -45,7 +61,7 @@ const About = () => {
                 background: clipBoard === "Copied to clipboard" ? "#2dd148" : "#5865F2"
               }}
               onClick={() => {
-                navigator.clipboard.writeText("callmenikk#0001");
+                navigator.clipboard.writeText("callmenikk#4874");
                 setClipBoard("Copied to clipboard")
               }}
               onMouseEnter={() => {
@@ -55,7 +71,7 @@ const About = () => {
               }}
               onMouseLeave={() => {
                 if(!c){
-                  setClipBoard("callmenikk#0001")
+                  setClipBoard("callmenikk#4874")
                 }
               }}
             >

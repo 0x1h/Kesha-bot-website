@@ -4,13 +4,14 @@ import { previewType } from "./FunPhotos";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Avatar1 from "../Landing/Assets/user1.png";
-import Kesha from "../Landing/Assets/bot-avatar.png";
 import commands from "./previewData.json";
 import "./style/loading.css"
 import axios from "axios";
 
 interface PreviewProps {
   closeSandbox: () => void;
+  avatar: string,
+  Loading: boolean
 }
 
 interface messagesProps {
@@ -30,9 +31,10 @@ const formatAMPM = (date: Date) => {
   return strTime;
 };
 
-const AIPreview: FC<PreviewProps> = ({closeSandbox}) => {
+const AIPreview: FC<PreviewProps> = ({closeSandbox, avatar, Loading}) => {
   const [input, setInput] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const messagesRef = useRef<HTMLDivElement>(null);
   const optionsRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<messagesProps[]>([]);
 
@@ -61,6 +63,7 @@ const AIPreview: FC<PreviewProps> = ({closeSandbox}) => {
         ]);
       }
       setIsLoading(false)
+      messagesRef.current!.scrollTop = messagesRef.current!.scrollHeight
     }).catch(err => {
       console.log(err);
     })
@@ -85,14 +88,14 @@ const AIPreview: FC<PreviewProps> = ({closeSandbox}) => {
   return (
     <div className="preview-sandbox">
       <div className="sandbox-container" ref={optionsRef}>
-        <div className="preview-messages" >
+        <div className="preview-messages" ref={messagesRef}>
           {messages.map((e, i) => {
             return (
               <div className="message" key={i}>
                 <div className="avatar">
                   <div className="avatar-frame">
                     <img
-                      src={e.name === "You" ? Avatar1 : Kesha}
+                      src={e.name === "You" ? Avatar1 : avatar}
                       alt="discord-avatar"
                     />
                   </div>
@@ -118,7 +121,7 @@ const AIPreview: FC<PreviewProps> = ({closeSandbox}) => {
             <div className="message">
             <div className="avatar">
               <div className="avatar-frame">
-                <img src={Kesha} alt="discord-avatar" />
+                <img src={avatar} alt="discord-avatar" />
               </div>
             </div>
             <div className="message-content">

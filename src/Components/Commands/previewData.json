@@ -2,6 +2,7 @@
 	"data": [
 		{"command_name": "$bidentweet", "preview": true, "text": "[ Your text goes here ]", "API_URL": "https://api.popcat.xyz/biden?text="},
 		{"command_name": "$ship", "preview": false, "text": "[ @mention user ]"},
+		{"command_name": "$img", "preview": false, "text": "[ search text ]"},
 		{"command_name": "$drip", "preview": false, "text": "[ @mention user ]"},
 		{"command_name": "$clown", "preview": false, "text": "[ @mention user ]"},
 		{"command_name": "$sadcat", "preview": true, "text": "[ Your text goes here ]", "API_URL": "https://api.popcat.xyz/sadcat?text="},

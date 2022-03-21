@@ -6,6 +6,8 @@ import "./navbar.css";
 const Navbar = () => {
   const [appearNavbar, setappearNavbar] = useState<boolean>(false);
   const [openNavbar, setOpenNavbar] = useState<boolean>(false)
+  const [avatar, setAvatar] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
   const navbarRef = useRef<HTMLDivElement>(null)
   const navigate = useNavigate();
   const {pathname} = useLocation();
@@ -30,6 +32,18 @@ const Navbar = () => {
       document.removeEventListener("click", handleClickOutside, true);
   });
 
+  useEffect(() => {
+    setIsLoading(true)
+
+
+    fetch("https://kesha-bot-users.herokuapp.com/user/938136480453365770")
+    .then((resp) => resp.json())
+    .then(data => {
+      setAvatar(data.avatarURL)
+      setIsLoading(false)
+    })
+  }, [])
+
   const scrollHandler = () => {
     const scrollY = window.pageYOffset;
 
@@ -48,8 +62,14 @@ const Navbar = () => {
 
   return (
     <nav className={appearNavbar ? (openNavbar ? "nav opened": "nav") : "nav hidden"} ref={navbarRef}>
-      <div className="avatar-frame" onClick={() => navigate("/")}>
-        <img src={Kesha} alt="" />
+      <div className="avatar-frame" onClick={() => {
+        navigate("/")
+        setOpenNavbar(false)
+        }}>
+        {
+          isLoading ? <span className="loaderr"/>
+          : <img src={avatar} alt="" />
+        }
       </div>
       <div className="hamburger-menu" onClick={() => setOpenNavbar(!openNavbar)}>
         <span className="line"></span>
@@ -57,10 +77,16 @@ const Navbar = () => {
         <span className="line"></span>
       </div>
       <div className="second">
-        <p onClick={() => navigate("/about")}>About</p>
-        <p onClick={() => navigate("/commands")}>Commands</p>
+        <p onClick={() => {
+          navigate("/about")
+          setOpenNavbar(false)
+          }}>About</p>
+        <p onClick={() => {
+          setOpenNavbar(false)
+          navigate("/commands")
+      }}>Commands</p>
         <a
-          href="https://discord.com/api/oauth2/authorize?client_id=938136480453365770&permissions=8&scope=bot"
+          href="https://discord.com/api/oauth2/authorize?client_id=938136480453365770&permissions=277028882752&scope=bot"
           target={"_blank"}
           style={{
             textDecoration: "none",

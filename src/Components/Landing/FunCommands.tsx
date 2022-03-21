@@ -1,14 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, FC } from "react";
 import "./style/fun-commands.css"
 import Avatar1 from "./Assets/user1.png"
 import Avatar2 from "./Assets/user2.png"
-import BotPhoto from "./Assets/bot-avatar.png";
 import SadCat from "./Assets/sadcat.png"
 import {motion} from "framer-motion"
 import Typewriter from "typewriter-effect";
 
 
-const FunCommands = () => {
+const FunCommands: FC<{isLoading: boolean, avatar: string}> = ({avatar, isLoading}) => {
   const [appearMessage, setAppearMessage] = useState<boolean>(false)
   
   const scrollHandler = () => {
@@ -95,7 +94,7 @@ const FunCommands = () => {
         
         <div className="avatar">
           <div className="avatar-frame">
-            <img src={BotPhoto} alt="discord-avatar" />
+            <img src={avatar} alt="discord-avatar" />
           </div>
         </div>
         <div className="message-content">
@@ -158,7 +157,7 @@ const FunCommands = () => {
       >
         <div className="avatar">
           <div className="avatar-frame">
-            <img src={BotPhoto} alt="discord-avatar" />
+            <img src={avatar} alt="discord-avatar" />
           </div>
         </div>
         <div className="message-content">

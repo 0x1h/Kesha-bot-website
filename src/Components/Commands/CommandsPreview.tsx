@@ -11,6 +11,8 @@ import axios from "axios";
 interface PreviewProps {
   command_name: previewType;
   closeSandbox: () => void;
+  avatar: string,
+  Loading: boolean
 }
 
 interface messagesProps {
@@ -30,10 +32,11 @@ const formatAMPM = (date: Date) => {
   return strTime;
 };
 
-const CommandsPreview: FC<PreviewProps> = ({ command_name, closeSandbox }) => {
+const CommandsPreview: FC<PreviewProps> = ({ command_name, closeSandbox, avatar, Loading }) => {
   const [input, setInput] = useState<string>("");
   const optionsRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const messagesRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<messagesProps[]>([]);
   const command: string | undefined = commands.data.find(
     (e) => e.command_name === command_name
@@ -62,6 +65,7 @@ const CommandsPreview: FC<PreviewProps> = ({ command_name, closeSandbox }) => {
         },
       ]);
       setIsLoading(false)
+      messagesRef.current!.scrollTop = messagesRef.current!.scrollHeight
     }).catch(err => {
       console.log(err);
     })
@@ -86,14 +90,14 @@ const CommandsPreview: FC<PreviewProps> = ({ command_name, closeSandbox }) => {
   return (
     <div className="preview-sandbox">
       <div className="sandbox-container" ref={optionsRef}>
-        <div className="preview-messages">
+        <div className="preview-messages" ref={messagesRef}>
           {messages.map((e, i) => {
             return (
               <div className="message" key={i}>
                 <div className="avatar">
                   <div className="avatar-frame">
                     <img
-                      src={e.name === "You" ? Avatar1 : Kesha}
+                      src={e.name === "You" ? Avatar1 : avatar}
                       alt="discord-avatar"
                     />
                   </div>

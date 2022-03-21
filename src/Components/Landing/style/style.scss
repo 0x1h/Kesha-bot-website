@@ -47,6 +47,8 @@ body {
       height: 300px;
       border-radius: 50%;
       border: 15px solid #001220;
+      background: #02101b;
+		  @include Center();
       overflow: hidden;
       position: relative;
 	  @media screen and(max-width: 315px) {

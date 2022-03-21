@@ -1,14 +1,21 @@
 import BlobCover from "./BlobCover";
-import BotPhoto from "./Assets/bot-avatar.png";
 import mouseScroll from "./Assets/mouse-scroll.png"
+import "./style/loader.css"
+import { FC } from "react";
 
-const BotAvatar = () => {
+const BotAvatar: FC<{avatar: string, isLoading: boolean}> = ({avatar, isLoading}) => {
   return <section className="kesha-cover">
   <BlobCover />
   <div className="bot-avatar">
 	<div className="avatar-frame">
-	  <div className="blank" />
-	  <img src={BotPhoto} alt="kesha-bot" />
+    {
+      isLoading ? 
+      <span className="loader" />
+      : <>
+          <div className="blank" />
+	        <img src={avatar} alt="kesha-bot" />
+        </>
+    }
 	</div>
 	<h1>Kesha Bot</h1>
   </div>

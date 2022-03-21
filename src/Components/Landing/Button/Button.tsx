@@ -19,7 +19,7 @@ const Button = () => {
 
   return (
     <MotionConfig transition={transition}>
-		<a href="https://discord.com/api/oauth2/authorize?client_id=938136480453365770&permissions=8&scope=bot" target="_blank" style={{
+		<a href="https://discord.com/api/oauth2/authorize?client_id=938136480453365770&permissions=277028882752&scope=bot" target="_blank" style={{
 			textDecoration: 'none'
 		}}>
       <motion.button

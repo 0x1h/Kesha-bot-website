@@ -10,9 +10,22 @@ type selectType = "Fun Photos" | "AI" | "Music";
 const Commands = () => {
   const [selectedCommands, setSelectedCommands] =
     useState<selectType>("Fun Photos");
+    const [avatar, setAvatar] = useState("")
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
       document.title = "Kesha bot - Commands 🌈🛸👽"
+    }, [])
+
+    useEffect(() => {
+      setIsLoading(true)
+
+    fetch("https://kesha-bot-users.herokuapp.com/user/938136480453365770")
+    .then((resp) => resp.json())
+    .then(data => {
+      setAvatar(data.avatarURL)
+      setIsLoading(false)
+    })
     }, [])
 
   return (
@@ -56,8 +69,8 @@ const Commands = () => {
             </button>
           </div>
           <div className="commands-preview">
-            {selectedCommands === "Fun Photos" && <FunPhotos />}
-            {selectedCommands === "AI" && <KeshaAi />}
+            {selectedCommands === "Fun Photos" && <FunPhotos avatar={avatar} Loading={isLoading}/>}
+            {selectedCommands === "AI" && <KeshaAi avatar={avatar} Loading={isLoading}/>}
             {selectedCommands === "Music" && <MusicCommands />}
           </div>
         </div>

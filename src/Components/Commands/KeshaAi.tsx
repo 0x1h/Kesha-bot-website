@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, FC } from "react";
 import AIPreview from "./AIPreview";
 
-const KeshaAi = () => {
+const KeshaAi:FC<{Loading: boolean, avatar: string}> = ({Loading, avatar}) =>{
 const [openPreview, setOpenPreview] = useState<boolean>(false)
 
   return <>
-  {openPreview && <AIPreview closeSandbox={() => setOpenPreview(false)}/>}
+  {openPreview && <AIPreview closeSandbox={() => setOpenPreview(false)} Loading={Loading} avatar={avatar}/>}
 	<div className="command-list" onClick={() => setOpenPreview(true)}>
 		<code>
 			$msg

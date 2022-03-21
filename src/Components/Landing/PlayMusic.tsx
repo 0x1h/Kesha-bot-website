@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, FC } from "react";
 import "./style/playmusic.css";
 import Avatar1 from "./Assets/user1.png";
-import BotPhoto from "./Assets/bot-avatar.png";
 import { motion } from "framer-motion";
 import Timber from "./Assets/timber-thumbnail.jpg";
 import Typewriter from "typewriter-effect";
 
-const PlayMusic = () => {
+const PlayMusic: FC<{avatar: string, isLoading: boolean}> = ({avatar, isLoading}) => {
   const [appearMessage, setAppearMessage] = useState<boolean>(false);
 
   const scrollHandler = () => {
@@ -79,7 +78,12 @@ const PlayMusic = () => {
         >
           <div className="avatar">
             <div className="avatar-frame">
-              <img src={BotPhoto} alt="discord-avatar" />
+              {
+                isLoading 
+                ? <span className="loader"/>
+                : <img src={avatar} alt="" />
+              }
+              
             </div>
           </div>
           <div className="message-content">
@@ -119,7 +123,7 @@ const PlayMusic = () => {
       <div className="music-request">
         <h1>Listen Music With Friends</h1>
         <p>
-          Support of <span id="spotify"> Spotify</span>,{" "}
+          Support for <span id="spotify"> Spotify</span>,{" "}
           <span id="youtube"> Youtube</span> and{" "}
           <span id="soundcloud"> Soundcloud</span> URLs
         </p>

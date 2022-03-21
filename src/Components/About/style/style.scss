@@ -34,6 +34,11 @@
       .kesha-avatar {
         max-width: 400px;
         max-height: 400px;
+        min-width: 400px;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         @media screen and(max-width: 907px) {
           width: 250px;
 		  border: 5px solid #96446e;
@@ -90,3 +95,23 @@
     }
   }
 }
+
+.loaderr {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	display: inline-block;
+	border-top: 3px solid #FFF;
+	border-right: 3px solid transparent;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+  }
+  
+  @keyframes rotation {
+	0% {
+	  transform: rotate(0deg);
+	}
+	100% {
+	  transform: rotate(360deg);
+	}
+  } 
